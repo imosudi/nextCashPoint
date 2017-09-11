@@ -1,0 +1,49 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Sample App by Mosudi{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" type="text/css"
+          href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css"
+          href="{{url_for('static', filename='css/narrow-jumbotron.css')}}">
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+{{ moment.include_moment() }}
+{% endblock %}
+
+{# Finally, round things out with navigation #}
+{% block navbar %}
+<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+	    <li class="nav-item">
+              <a class="nav-link" href="/register">Sign Up</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">nextCashPoint</h3>
+      </div>
+{% endblock %}
+{% block content %}
+		{% block page_content %} {% endblock %}
+
+
+<footer style="text-align: center;"> &copy; copyright  {{ moment(current_time).format('YYYY') }} | <a href="mailto:imosudi@gmail.com">imosudi@gmail.com</a> | <a href="http://www.mioemi.com">wwww.mioemi.com</a> </footer>
+{% endblock %}
